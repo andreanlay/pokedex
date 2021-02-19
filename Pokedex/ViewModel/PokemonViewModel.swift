@@ -17,7 +17,7 @@ class PokemonViewModel: ObservableObject {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                if let decoded = try? JSONDecoder().decode(PokemonList.self, from: data) {
+                if let decoded = try? JSONDecoder().decode(Result.self, from: data) {
                     DispatchQueue.main.async {
                         self.pokemonList = decoded.results
                     }

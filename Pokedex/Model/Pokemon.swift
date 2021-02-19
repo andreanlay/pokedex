@@ -7,11 +7,15 @@
 
 import Foundation
 
-struct PokemonList: Decodable {
+struct Result: Decodable {
     var results: [Pokemon]
 }
 
 struct Pokemon: Decodable {
     var name: String
     var url: String
+    
+    var formattedName: String {
+        String(Array(name)[0].uppercased() + name.dropFirst())
+    }
 }

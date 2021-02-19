@@ -16,7 +16,7 @@ struct MainView: View {
                 NavigationLink(destination: PokemonDetailView(pokemonId: index + 1)) {
                     HStack {
                         ImageView(withURL: viewModel.getImageURL(pokemonId: index + 1))
-                        Text(viewModel.pokemonList[index].name)
+                        Text(viewModel.pokemonList[index].formattedName)
                     }
                 }
             }
