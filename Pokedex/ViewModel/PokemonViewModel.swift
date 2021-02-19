@@ -11,6 +11,7 @@ class PokemonViewModel: ObservableObject {
     private let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151")!
     @Published var pokemonList = [Pokemon]()
     
+    
     func fetchData() {
         let request = URLRequest(url: url)
         
@@ -23,6 +24,10 @@ class PokemonViewModel: ObservableObject {
                 }
             }
         }.resume()
+    }
+    
+    func getImageURL(pokemonId id: Int) -> String {
+        return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png"
     }
     
     func fetchPokemonData(pokemonId id: Int) {

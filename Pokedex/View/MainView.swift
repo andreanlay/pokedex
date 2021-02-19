@@ -12,8 +12,13 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.pokemonList, id: \.name) { pokemon in
-                Text(pokemon.name)
+            List(viewModel.pokemonList.indices, id: \.self) { index in
+                NavigationLink(destination: PokemonDetailView(pokemonId: index + 1)) {
+                    HStack {
+                        ImageView(withURL: viewModel.getImageURL(pokemonId: index + 1))
+                        Text(viewModel.pokemonList[index].name)
+                    }
+                }
             }
             .navigationTitle("P@kedex")
         }
