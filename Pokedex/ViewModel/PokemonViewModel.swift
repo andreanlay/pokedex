@@ -9,7 +9,7 @@ import Foundation
 
 class PokemonViewModel: ObservableObject {
     private let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151")!
-    @Published var pokemonList = [Pokemon]()
+    @Published var pokemonList = [PokemonList]()
     
     
     func fetchData() {
@@ -28,9 +28,5 @@ class PokemonViewModel: ObservableObject {
     
     func getImageURL(pokemonId id: Int) -> String {
         return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png"
-    }
-    
-    func fetchPokemonData(pokemonId id: Int) {
-        
     }
 }

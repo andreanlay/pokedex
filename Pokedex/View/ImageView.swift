@@ -17,9 +17,9 @@ struct ImageView: View {
 
     var body: some View {
         Image(uiImage: imageLoader.image ?? UIImage())
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width:100, height:100)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 100, height: 100)
     }
 }
 

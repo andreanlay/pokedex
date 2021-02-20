@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             List(viewModel.pokemonList.indices, id: \.self) { index in
-                NavigationLink(destination: PokemonDetailView(pokemonId: index + 1)) {
+                NavigationLink(destination: PokemonDetailView(id: index + 1)) {
                     HStack {
                         ImageView(withURL: viewModel.getImageURL(pokemonId: index + 1))
                         Text(viewModel.pokemonList[index].formattedName)
